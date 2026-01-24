@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Camera, Trash2, Plus, Check, X, Calendar, DollarSign, Users, RefreshCw } from 'lucide-react';
+import { Trash2, Plus, Check, X, Calendar, DollarSign, Users, RefreshCw } from 'lucide-react';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5001/api';
+const API_URL = 'http://localhost:5000/api';
 
 const App = () => {
   const [students, setStudents] = useState([]);
@@ -43,16 +43,6 @@ const App = () => {
       setStats(data);
     } catch (error) {
       console.error('Error loading stats:', error);
-    }
-  };
-
-  const testConnection = async () => {
-    try {
-      const response = await fetch(`${API_URL}/health`);
-      const data = await response.json();
-      alert(`✅ Backend Connected!\n${JSON.stringify(data, null, 2)}`);
-    } catch (error) {
-      alert(`❌ Backend Not Connected!\nError: ${error.message}\n\nMake sure backend is running on port 5000`);
     }
   };
 
